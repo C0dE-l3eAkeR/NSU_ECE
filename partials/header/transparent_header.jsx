@@ -16,7 +16,7 @@ const  Transparent_header = ()=>{
    return (
  <>
 <header className="header header__sticky v__1">
-    <div className="container-fluid">
+    <div className="container-fluid" >
         <div className="row">
             <div className="col-xl-12">
                 <div className="header__wrapper">

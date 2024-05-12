@@ -1,24 +1,59 @@
+
+"use client"
 import React from 'react';
 import TransperentHeader5 from '../../../../partials/header/transparent_header_v5';
 import Breadcrumb from '../../../../partials/elements/breadcrumb';
-
-import '../../../../styles/css/plugins/animate.min.css';
-import '../../../../styles/css/plugins/fontawesome-6.css';
-//import '../../../../styles/css/plugins/jquery-ui.css';
-import '../../../../styles/css/plugins/swiper.min.css';
-import '../../../../styles/css/plugins/unicons.css';
-import '../../../../styles/css/plugins/nice-select.css';
-import '../../../../styles/css/vendor/bootstrap.min.css';
-import '../../../../styles/css/vendor/canela-font.css';
-import '../../../../styles/css/vendor/magnific-popup.css';
-import '../../../../styles/css/vendor/metismenu.css';
-//import '../../../../styles/css/style.css';
-import '../../../../styles/global.css';
-import '../../../../styles/scss/style.scss';
-import bredcrmb from '../../../../public/assests/images/banner/breadcrumb.jpg'
+import { A11y, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+const ResearchItem = ({ imageUrl, title, excerpt }) => {
+    return (
+        
+            <div className="rts__research--single">
+                <div className="rts__research--single--thumb">
+                    <a href="research.html">
+                        <img src={imageUrl} alt="" />
+                    </a>
+                </div>
+                <div className="rts__research--single--meta">
+                    <a className="rts__research--single--meta--title" href="research.html">{title}</a>
+                    <p className="rts__research--single--meta--excerpt">{excerpt}</p>
+                </div>
+            </div>
+       
+    );
+}
 
 
 const FacultyDetails = () => {
+    const researchItems = [
+        {
+          imageUrl: "/assests/images/research/01.jpg",
+          title: "Are Social Networks Beneficial for our Society?",
+          excerpt: "The American Journal of Applied Scientific Research (AJASR): A Rigorous Peer-Reviewed Platform.",
+          link: "research.html"
+        },
+        {
+          imageUrl: "/assests/images/research/02.jpg",
+          title: "Unveiling the Frontiers Discovery and Innovation",
+          excerpt: "The American Journal of Applied Scientific Research (AJASR): A Rigorous Peer-Reviewed Platform.",
+          link: "research.html"
+        },
+        {
+          imageUrl: "/assests/images/research/03.jpg",
+          title: "Exploring Environmental Frontiers Unveiling Insights Labs Research",
+          excerpt: "Our commitment extends beyond the confines of the laboratory walls; we aim to bridge the gap.",
+          link: "research.html"
+        },
+        {
+            imageUrl: "/assests/images/research/03.jpg",
+            title: "Exploring Environmental Frontiers Unveiling Insights Labs Research",
+            excerpt: "Our commitment extends beyond the confines of the laboratory walls; we aim to bridge the gap.",
+            link: "research.html"
+          }
+      ];
+
     // Define variables with the information
     const name = "Jennifer Aarons, PhD";
     const designation = "Assistant Professor";
@@ -40,11 +75,11 @@ const FacultyDetails = () => {
         <section className="rts-faculty-details rts-section-padding">
             <div className="container">
                 <div className="row sticky-coloum-wrap justify-content-sm-center g-5">
-                    <div className="col-lg-4 col-md-10 col-sm-10 sticky-coloum-item">
+                    <div className="col-lg-4 col-md-10 col-sm-10 sticky-coloum-item" style={{position:"sticky"}}>
                         <div className="faculty-member">
                             <div className="faculty-member__details rt-center">
-                                <div className="faculty-member__image">
-                                    <img src="assests/images/faculty/mem-1.jpg" alt="member image" />
+                                <div className="faculty-member__image" style={{position:"sticky"}}>
+                                    <img src="assests/images/faculty/mem-1.jpg" style={{position:"sticky"}} alt="member image" />
                                 </div>
                                 <div className="faculty-member__info">
                                     <div className="faculty-member__info--social">
@@ -80,14 +115,43 @@ const FacultyDetails = () => {
                                     <div className="course__single">
                                         <ul className="list-unstyled">
                                             {courses.map((course, index) => (
-                                                <li key={index}><a href="#">{course}</a></li>
+                                                <li key={index}><i className="far fa-check-circle px-2"></i><a href="#">{course}</a></li>
                                             ))}
                                         </ul>
                                     </div>
                                 </div>
                                 <div className="short-info">
                                     <h5 className="rts-section-title">PUBLICATIONS</h5>
-                                    <p>{publications}</p>
+                                    <Swiper
+           modules={[Navigation, A11y]}
+           navigation
+           spaceBetween={30}
+          scrollbar={{ draggable: true }}
+          slidesPerView="3"
+        >
+    <div className="row g-5">
+    
+    <div className="col-lg-4">
+   
+        {/* Render EventCard components */}
+    {researchItems.map(item => (
+       <SwiperSlide key={item.id}> <ResearchItem
+       key={item.id}
+       imageUrl={item.imageUrl}
+       title={item.title}
+       excerpt={item.excerpt}
+             />
+        </SwiperSlide>
+    ))}
+    
+  
+    </div>
+    
+    </div>
+    </Swiper>
+                            
+                
+        
                                 </div>
                             </div>
                         </div>

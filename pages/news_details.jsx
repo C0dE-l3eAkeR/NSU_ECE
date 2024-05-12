@@ -2,9 +2,17 @@
 
 const NewsDetailsComponent = () => {
     // Variables to store information
-    const department = "B.A. in Africana Studies";
-    const contactEmail = "barry.Unipix@info.com";
-    const contactPhone = "664-254-251";
+    const info = {
+     imgsrc : "assests/images/blog/blog-details.jpg",
+     author : "Amir Nisi",
+     date : "20 Jan 2024, 10:30 pm",
+     link : "#" ,
+     link_text: "Study Abraod",
+     Title : "10 Effective Study Tips for College Success",
+     department : "B.A. in Africana Studies",
+     contactEmail : "barry.Unipix@info.com",
+     contactPhone :"664-254-251",
+    }
     const socialLinks = [
         { icon: "fa-facebook", link: "#" },
         { icon: "fa-instagram", link: "#" },
@@ -27,14 +35,14 @@ const NewsDetailsComponent = () => {
                     <div className="col-lg-8 col-md-10">
                         <article className="blog-details">
                             <div className="blog-details__featured-image">
-                                <img src="assests/images/blog/blog-details.jpg" alt="blog post" />
+                                <img src={info.imgsrc} alt="blog post" />
                             </div>
                             <div className="blog-details__article-meta mt--40">
-                                <a href="#"><span><i className="fa-light fa-user"></i></span>Amir Nisi</a>
-                                <span><span><i className="fa-light fa-clock"></i></span>20 Jan 2024, 10:30 pm</span>
-                                <a href="#"><span><i className="fa-sharp fa-light fa-tags"></i></span>Study Aboard</a>
+                                <a href="#"><span><i className="fa-light fa-user"></i></span>{info.author}</a>
+                                <span><span><i className="fa-light fa-clock"></i></span>{info.date}</span>
+                                <a href="#"><span><i className="fa-sharp fa-light fa-tags"></i></span>{info.link_text}</a>
                             </div>
-                            <h3 className="blog-title">10 Effective Study Tips for College Success</h3>
+                            <h3 className="blog-title">{info.Title}</h3>
                             {/* Content goes here */}
                         </article>
                         {/* Other content goes here */}
@@ -55,7 +63,7 @@ const NewsDetailsComponent = () => {
                             </div>
                             <div className="program-info">
                                 <h5>Department Contact Info</h5>
-                                <p>{department}</p>
+                                <p>{info.department}</p>
                                 <div className="contact-info">
                                     <h5>Contact:</h5>
                                     <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
