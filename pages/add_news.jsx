@@ -60,7 +60,7 @@ const Add_News = () => {
        setShowImg(!showimg);
 
      }
-     else if (inputValue.trim() !== '' && id=="h5") {
+     else if (inputValue.trim() !== '' && id=="ip") {
         let inputValue2 = "<h5>"+ inputValue + "</h5>"
        setHeadings([...headings, inputValue2]);
        setInputValue('');

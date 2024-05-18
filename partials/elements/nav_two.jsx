@@ -72,9 +72,9 @@ const Navigation = () => {
                     <li className="navigation__menu--item" style={{paddingLeft:"50px"}}>
                         <a href="/Login" className="navigation__menu--item__link">Login</a>
                     </li>
-                    <li className="navigation__menu--ite" style={{marginTop:"25px"}}>
+                   {/*} <li className="navigation__menu--ite" style={{marginTop:"25px"}}>
                     <a href="/Pending_Req" > <NotificationButton count={notificationCount} /></a>
-               </li>
+    </li>*/}
                 </ul>
             </nav>
         </div>

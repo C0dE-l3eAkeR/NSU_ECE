@@ -5,15 +5,16 @@ import { useState } from 'react';
 import Transparent_header from "../partials/header/transparent_header";
 
 import AboutSection from "../partials/components/about_h1";
+import { Pagination } from 'swiper/modules';
+import { A11y, Navigation, EffectCube, Autoplay } from 'swiper/modules';
 
-import { A11y, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import TransperentHeader5 from "../partials/header/transparent_header_v5";
 
-
+import HeroSlider from "../partials/components/hero-slider";
 
 
 // or all tools are exported from the "all" file (excluding members-only plugins):
@@ -293,7 +294,7 @@ const TestimonialSlide = ({ rating, text, authorName, authorDesignation, authorI
     );
 }
 
-
+{/*
 const EventCard = ({ imageUrl, date, location, title }) => {
     return (
         <div className="col-lg-4 col-md-6 col-sm-6">
@@ -351,7 +352,6 @@ const BlogArea = () => {
                   
 
                 
-                {/* blog content */}
                 <div className="row g-5 justify-content-md-center">
                     <div className="col-md-11 col-lg-6">
                         <div className="rts-blog-post blog-v-full">
@@ -381,7 +381,7 @@ const BlogArea = () => {
                     </div>
                     <div className="col-md-11 col-lg-6">
                         <div className="rts-blog-post">
-                            {/* single blog */}
+                         
                     {blogData.map((blog, index) => (
                                 <div  key={index} className="single-blog-post">
                                     <div className="blog-thumb">
@@ -412,13 +412,269 @@ const BlogArea = () => {
             </div>
         </div>
                           
-                            {/* single blog */}
-                            {/* Add other single blog items here */}
+                          
                         </div>
                     </div>
                
     );
 }
+*/}
+const TestimonialSection = () => {
+    // Define testimonial data
+    const testimonialData = [
+        {
+            image: "assests/images/testimonial/author-1.png",
+            videoLink: "https://www.youtube.com/watch?v=7ahgosTZJHg",
+            rating: 4.5,
+            reviewCount: 112,
+            text: "I would fdgfdg highly recommend Michael Richard to anyone interested in the subject matter. It has provided me with invaluable knowledge & a newfound passion for the topic. My only suggestion would be to add more live.",
+            author: "David Jhon",
+            occupation: "Artist and Instructor"
+        },  {
+            image: "assests/images/testimonial/author-1.png",
+            videoLink: "https://www.youtube.com/watch?v=7ahgosTZJHg",
+            rating: 4.5,
+            reviewCount: 112,
+            text: "I would highly frgdfgdf recommend Michael Richard to anyone interested in the subject matter. It has provided me with invaluable knowledge & a newfound passion for the topic. My only suggestion would be to add more live.",
+            author: "David Jhon",
+            occupation: "Artist and Instructor"
+        },  {
+            image: "assests/images/testimonial/author-1.png",
+            videoLink: "https://www.youtube.com/watch?v=7ahgosTZJHg",
+            rating: 4.5,
+            reviewCount: 112,
+            text: "I would highly gfgfgfg recommend Michael Richard to anyone interested in the subject matter. It has provided me with invaluable knowledge & a newfound passion for the topic. My only suggestion would be to add more live.",
+            author: "David Jhon",
+            occupation: "Artist and Instructor"
+        },
+        // Add more testimonials as needed
+    ];
+
+    return (
+        <div className="rts-testimonial v_2 rt-relative rts__primary__bg">
+            <div className="container">
+                
+                {/* testimonial content */}
+                <Swiper
+                  modules={[Pagination, Navigation, A11y, EffectCube, Autoplay]}
+                  navigation ={{
+                    nextEl:".rts__next",
+                    prevEl:".rts__prev"
+                  }}
+                  effect={'cube'}
+                  grabCursor={true}
+                  cubeEffect={{
+                    shadow: true,
+                    slideShadows: true,
+                    shadowOffset: 50,
+                    shadowScale: 0.74,
+                  }}
+                  slidesPerView={2}
+                  pagination={{
+                    dynamicBullets: true,
+                  }}
+                  loop =  {true}
+                  speed= {1000}
+                  autoplay={{
+                    delay: 7000,
+                    disableOnInteraction: false,
+                  }}>
+                        <div className="rts-testimonial-box">
+                            <div className="testimonial-item rt-flex">
+                                {testimonialData.map((testimonial, index) => (
+                                  <SwiperSlide>  <div key={index} >
+                                        <div className="testmonial-v2 px-5">
+                                           
+                                                    <div className="single-testimonial">
+                                                          <div className="rt-between mb--50">
+                                                            <div className="rt-icon flipped-icon ">
+                                                                <img src="assests/images/testimonial/quote.svg" alt="quote icon" />
+                                                            </div>
+                                                        
+                                                            <div className="rt-icon flipped-icon2">
+                                                                <img src="assests/images/testimonial/quote.svg" alt="quote icon" />
+                                                            </div>
+                                                           {/*} <div className="rt-review">
+                                                                <div className="rating-star mb--10">
+                                                                    {Array.from({ length: Math.floor(testimonial.rating) }, (_, i) => (
+                                                                        <i key={i} className="fa-sharp fa-solid fa-star"></i>
+                                                                    ))}
+                                                                    {testimonial.rating % 1 !== 0 && <i className="fa-sharp fa-light fa-star"></i>}
+                                                                </div>
+                                                                <p className="rt-secondary rt-medium --p-s">{testimonial.rating} ({testimonial.reviewCount} Review)</p>
+                                                                </div>*/}
+                                                        </div>
+                                                        <p className="testimonial-text">{testimonial.text}</p>
+                                                        <div className="rt-testimonial-author mt--50">
+                                                            <div className="rt-author-meta rt-flex rt-gap-20">
+                                                                <div className="rt-author-img">
+                                                                    <img src={testimonial.image} alt="author" />
+                                                                </div>
+                                                                <div className="rt-author-info">
+                                                                    <h5 className="mb-1">{testimonial.author}</h5>
+                                                                    <p>{testimonial.occupation}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                ))}
+                            </div>
+                        </div>
+                        </Swiper>
+                    </div>
+                </div>
+          
+    );
+};
+
+const eventData = [
+    {
+        title: "Diversity, Equity, and Inclusion",
+        date: "November 28, 2023",
+        time: "10:30 am",
+        place: "Yarra Park, UK",
+        imageUrl: "/assests/images/blog/small-thumb-1.jpg",
+    },
+    {
+        title: "Talking Money With Kids and Teens",
+        date: "November 28, 2023",
+        time: "10:30 am",
+        imageUrl: "/assests/images/blog/small-thumb-1.jpg",
+        place: "Yarra Park, UK"
+    },
+    {
+        title: "Planning for College After Affirmative Action",
+        date: "November 28, 2023",
+        time: "10:30 am",
+        imageUrl: "/assests/images/blog/small-thumb-1.jpg",
+        place: "Yarra Park, UK"
+    }
+];
+const noticeData = [
+    {
+        date: "20 Jan",
+        content: "Notice Regarding Upcoming Campus Event: Spring Fling Carnival.",
+        link: "notice-details.html"
+    },
+    {
+        date: "22 Jan",
+        content: "Important Notice: Changes to Examination Schedule for Fall Semester 2024.",
+        link: "notice-details.html"
+    },
+    {
+        date: "24 Jan",
+        content: "Notice Regarding Deadline Extension for Assignment Submission in Biology 101.",
+        link: "notice-details.html"
+    },
+    {
+        date: "25 Jan",
+        content: "Urgent Notice: Campus Maintenance Work Scheduled for March 5th-7th.",
+        link: "notice-details.html"
+    },
+    {
+        date: "25 Jan",
+        content: "Notice of Guest Lecture: Dr. John Smith on Neuroscience Advances.",
+        link: "notice-details.html"
+    }
+];
+
+const AlumniEvent = () => {
+    // Define event data
+   
+    return (
+    <section class="rts-notice rts__light rts-section-padding rts-section-padding">
+    <div class="container">
+        <div class="row gy-5 gy-lg-0 justify-content-md-center">
+            <div class="col-md-11 col-lg-7">
+        <div className="rts-event-section">
+        <div className="rts-section rt-between pb--25 mb-5 rts-border-bottom-2">
+                    <h4 className="rts-section-title">Events</h4>
+                    <a href="#" className="rts-arrow">View All <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                </div>
+            
+            <div className="rts-event-section-content">
+                <ul className="list-unstyled rts-counter">
+                    {eventData.map((event, index) => (
+                        <li key={index} className="single-event">
+                     
+                                        <a href={event.link}>
+                                            <img src={event.imageUrl} alt="post-thumbnail" />
+                                        </a>
+                                   
+                            <div className="single-event-content">
+                                <h5 className="event-title">{event.title}</h5>
+                                <div className="single-event-content-meta">
+                                    <div className="event-date">
+                                        <span><i className="fal fa-calendar"></i></span>
+                                        <span>{event.date}</span>
+                                    </div>
+                                    <div className="event-time">
+                                        <span><i className="fa-sharp fa-thin fa-clock"></i></span>
+                                        <span>{event.time}</span>
+                                    </div>
+                                    <div className="event-place">
+                                        <span><i className="fa-sharp fa-thin fa-location-dot"></i></span>
+                                        <span>{event.place}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            </div>
+        </div>
+            <div className="col-md-11 col-lg-5">
+            <div className="rts-notice-section ">
+                <div className="rts-section rt-between pb--25 rts-border-bottom-2">
+                    <h4 className="rts-section-title">Notice</h4>
+                    <a href="#" className="rts-arrow">View All <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                </div>
+                <div className="rts-tab">
+                    <ul className="nav nav-pills pb--30" id="pills-tab" role="tablist">
+                        <li className="nav-item" role="presentation">
+                            <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Latest</button>
+                        </li>
+                        {/* Add more tabs if needed */}
+                    </ul>
+                    <div className="tab-content" id="pills-tabContent">
+                        <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabIndex="0">
+                            <ul className="list-unstyled notice-content-box">
+                                {noticeData.map((notice, index) => (
+                                    <li key={index} className="single-notice">
+                                        <div className="single-notice-item">
+                                            <div className="notice-date">
+                                                {notice.date}
+                                            </div>
+                                            <div className="notice-content">
+                                                <p>
+                                                    <a href={notice.link}>
+                                                        {notice.content}
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+       
+        </div>
+    </div>
+</section>
+    );
+};
 
 
 const Index = ()=>{
@@ -436,10 +692,10 @@ const Index = ()=>{
 
     
 <div className="page">
-<TransperentHeader5 />
-<Transparent_header updateVariable={updateVariable}/>
+<Transparent_header />
+<HeroSlider/>
 <title>Home</title>
-    <div className="banner v__1">
+   {/* <div className="banner v__1">
         <div className="container">
             <div className="col-sm-12">
                 <div className="banner__wrapper">
@@ -488,8 +744,8 @@ const Index = ()=>{
                 <div className="banner__wrapper--shape">
                     <img src="/assests/images/banner/banner-svg.svg" alt="banner"/>
                 </div>
-            </div>
-        </div>
+            
+    </div>
         <div className="grid-line">
             <div className="grid-lines">
                 <div className="line"></div>
@@ -497,7 +753,7 @@ const Index = ()=>{
                 <div className="line"></div>
             </div>
         </div>
-    </div>
+    </div></div>
     <div className="v_1 rts__light rts-section-padding">
        <BlogArea/>
     </div>
@@ -516,7 +772,7 @@ const Index = ()=>{
       
             <div className="row g-5">
            
-                {/* Render EventCard components */}
+               
             {events.map(event => (
                 <EventCard
                     key={event.id}
@@ -531,8 +787,128 @@ const Index = ()=>{
         </div>
     </section>
    
-
+*/}
+    <AlumniEvent/>
   
+    <AboutSection />
+     
+
+    
+    <section className="rts-program rts__light v_2 rts-section-padding">
+            <div className="container">
+                <div className="row rt-center">
+                    <div className="col-sm-12">
+                        <div className="rts__section--wrapper v__5">
+                            <h2 className="rts__section--title">Discover Our Program</h2>
+                        </div>
+                    </div>
+                </div>
+                {/* program content */}
+                <div className="row justify-content-center g-0">
+                    <div className="col-lg-4 col-md-10">
+                        <div className="rts-program-single">
+                            <div className="rts-program-single__content">
+                                <div className="rts-program-hover">
+                                    <div className="icon">
+                                        <img src="assests/images/program/icon/03.svg" alt="education" />
+                                    </div>
+                                    <a href="program-single.html" className="program-link">Graduate Admissions</a>
+                                    <p>Embark on a journey of knowledge, discovery, and growth at  Unipix University.</p>
+                                    {/* Assuming nobg-btn.html content is static */}
+                                    <a href="program-single.html" class="about-btn rts-nbg-btn btn-arrow rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-10">
+                        <div className="rts-program-single ">
+                            <div className="rts-program-single__content">
+                                <div className="rts-program-hover center-item rt-primary-bg">
+                                    <ul className="list-unstyled">
+                                        <li className="single-program">
+                                            <div className="icon-box">
+                                                <img src="assests/images/icon/04.svg" alt="" />
+                                            </div>
+                                            <a href="program-single.html">Major Programs</a>
+                                        </li>
+                                        <li className="single-program">
+                                            <div className="icon-box">
+                                                <img src="assests/images/icon/05.svg" alt="" />
+                                            </div>
+                                            <a href="program-single.html">Minors Programs</a>
+                                        </li>
+                                        <li className="single-program">
+                                            <div className="icon-box">
+                                                <img src="assests/images/icon/06.svg" alt="" />
+                                            </div>
+                                            <a href="program-single.html">Bachelor’s & Master’s</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-10">
+                        <div className="rts-program-single">
+                            <div className="rts-program-single__content">
+                                <div className="rts-program-hover">
+                                    <div className="icon">
+                                        <img src="assests/images/program/icon/01.svg" alt="education" />
+                                    </div>
+                                    <a href="program-single.html" className="program-link">Online Education</a>
+                                    <p>Embark on a journey of knowledge, discovery, and growth at  Unipix University.</p>
+                                    {/* Assuming nobg-btn.html content is static */}
+                                    <a href="program-single.html" class="about-btn rts-nbg-btn btn-arrow rt-white before-white">Visit Program <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    <section className="rts__section rts-section-padding rts__primary__bg">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-5">
+                    <div className=" v__4">
+                        <h2 style={{color:"white"}} className="rts__section--title pb-5">ADMIN Messeges</h2>
+                        <p style={{color:"white"}} className="rts__section--description pb-3">Your opinion matters, and by providing feedback, you contribute to the continuous enhancement of our academic programs, support services, and campus life</p>
+                        {/*<div className="rts__slider--arrow">
+                            <div className="rts__prev slider__btn"><i className="fa-light fa-arrow-left"></i></div>
+                            <div className="rts__next slider__btn"><i className="fa-light fa-arrow-right"></i></div>
+</div>*/}
+                    </div>
+                </div>
+                <TestimonialSection/>
+             {/*   <div className="col-lg-7">
+            <Swiper
+          modules={[Navigation, A11y]}
+         
+          spaceBetween={30}
+          navigation
+        
+          scrollbar={{ draggable: true }}
+          slidesPerView="auto"
+        >       
+           
+            {testimonials.map(testimonial => (
+               <SwiperSlide  key={testimonial.id}> <TestimonialSlide   
+                    rating={testimonial.rating}
+                    text={testimonial.text}
+                    authorName={testimonial.authorName}
+                    authorDesignation={testimonial.authorDesignation}
+                    authorImage={testimonial.authorImage}
+                /></SwiperSlide>
+            ))}
+            </Swiper> 
+            </div>*/}
+            </div>
+            </div>
+           
+    </section>
 
     <section className="rts__section rts__light rts-section-padding">
         <div className="container">
@@ -595,7 +971,7 @@ const Index = ()=>{
         </div>
     </section>
 
-    <section className="rts__section rts__light rts-section-padding">
+ {/*   <section className="rts__section rts__light rts-section-padding">
         <div className="container">
             <div className="row">
                 <div className="rts__section--wrapper">
@@ -620,9 +996,11 @@ const Index = ()=>{
                 </div>
             </div>
             </div>
-    </section>
+                </section>*/}
+
+
  
-    <section className="rts__section rts-section-padding">
+    <section className="rts__section rts__light rts-section-padding">
         <div className="container">
             <div className="row">
                 <div className="col-lg-5 col-md-6">
@@ -655,48 +1033,10 @@ const Index = ()=>{
         </div>
     </section>
 
-    <section className="rts__section rts-section-padding rts__primary__bg">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-5">
-                    <div className="rts__section--wrapper v__4">
-                        <h2 className="rts__section--title">Student Feedback</h2>
-                        <p className="rts__section--description">Your opinion matters, and by providing feedback, you contribute to the continuous enhancement of our academic programs, support services, and campus life</p>
-                        <div className="rts__slider--arrow">
-                            <div className="rts__prev slider__btn"><i className="fa-light fa-arrow-left"></i></div>
-                            <div className="rts__next slider__btn"><i className="fa-light fa-arrow-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-              
-                <div className="col-lg-7">
-            <Swiper
-          modules={[Navigation, A11y]}
-         
-          spaceBetween={30}
-          navigation
         
-          scrollbar={{ draggable: true }}
-          slidesPerView="auto"
-        >       
-            {/* Render TestimonialSlide components */}
-            {testimonials.map(testimonial => (
-               <SwiperSlide  key={testimonial.id}> <TestimonialSlide   
-                    rating={testimonial.rating}
-                    text={testimonial.text}
-                    authorName={testimonial.authorName}
-                    authorDesignation={testimonial.authorDesignation}
-                    authorImage={testimonial.authorImage}
-                /></SwiperSlide>
-            ))}
-            </Swiper>
-            </div>
-            </div>
-            </div>
-    </section>
+   
 
-
-    <AboutSection />
+   
  
     
 </div>

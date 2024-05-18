@@ -66,8 +66,8 @@ const NewsDetailsComponent = () => {
                                 <p>{info.department}</p>
                                 <div className="contact-info">
                                     <h5>Contact:</h5>
-                                    <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                                    <a href={`callto:${contactPhone}`}>{contactPhone}</a>
+                                    <a href={`mailto:${info.contactEmail}`}>{info.contactEmail}</a>
+                                    <a href={`callto:${info.contactPhone}`}>{info.contactPhone}</a>
                                 </div>
                                 <div className="social-info">
                                     <h5>Social Info:</h5>

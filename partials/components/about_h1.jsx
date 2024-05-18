@@ -4,7 +4,7 @@ import React from 'react';
 
 const AboutSection = () => {
     return (
-        <section className="about rts__padding--120-100 v__1">
+        <section className="about  rts__padding--120-100 v__1">
             <div className="container">
                 <div className="row justify-content-md-center align-items-center">
                     <div className="col-lg-6 col-md-10">
@@ -24,7 +24,7 @@ const AboutSection = () => {
                                             </text>
                                         </svg>
                                         <div className="rts__circle--icon">
-                                            <i className="fa-light fa-arrow-right"></i>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -47,19 +47,15 @@ const AboutSection = () => {
             {/* funfact */}
             <div className="container rts__pt100">
                 <div className="row justify-content-center">
-                    <div className="col-lg-12 rts-funfact v__1">
+                    <div className="col-lg-10 rts-funfact v__1">
                         <div className="rts-funfact-wrapper">
-                            <div className="single-cta-item">
-                                <h2 className="single-cta-item__title">20,000</h2>
-                                <p>undergraduate & graduate students</p>
-                            </div>
                             <div className="single-cta-item">
                                 <h2 className="single-cta-item__title">16,214</h2>
                                 <p>North South University Faculty & Staff</p>
                             </div>
-                            <div className="single-cta-item">
-                                <h2 className="single-cta-item__title">300k</h2>
-                                <p>North South University alumni Worldwide</p>
+                            <div className="single-cta-item ms-10">
+                                <h2 className="single-cta-item__title">No. 1</h2>
+                                <p>Private University in Bangladesh</p>
                             </div>
                             <div className="single-cta-item">
                                 <h2 className="single-cta-item__title">20,000</h2>

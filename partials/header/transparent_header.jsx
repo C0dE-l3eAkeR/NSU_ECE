@@ -22,15 +22,18 @@ const  Transparent_header = ()=>{
                 <div className="header__wrapper">
                     <div className="header__logo">
                         <a href="index.html" className="header__logo--link">
-                            
+                         <img src="assests/images/logo/logo__white.svg" alt="unipix"/>
                         </a>
                     </div>
                     <div className="header__menu">
-                    
+                       <Navigation/>
                     </div>
                    <div className="header__right">
                      <div className="header__right--item">
-                         
+                     <div id="menu-btn" className="menu__trigger" onClick={handleToggleSidebar}>
+                                     
+                                     <img src="assests/images/icon/menu__bar-2.svg" alt="bar" />
+                                 </div>
                       </div>
                    </div>
                 </div>

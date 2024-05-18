@@ -18,6 +18,15 @@ body {
     Helvetica Neue,
     sans-serif;
 }
+
+.flipped-icon {
+  transform: scaleX(-1);
+}
+
+.flipped-icon2 {
+  transform: scaleY(-1);
+}
+
 .swiper-container{
   width: 100%;
 }
@@ -39,8 +48,14 @@ body {
 .navigation__menu--item__link {
   font-weight: bold;
 }
-div,button,a, img,ul {
+div,button ,a, img,ul,li {
   border-radius: 10px; /* Adjust the value as needed */
+}
+
+#pills-home-tab {
+
+  border-radius: 10px;
+
 }
 a {
   color: inherit;
