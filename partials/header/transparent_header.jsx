@@ -22,7 +22,7 @@ const  Transparent_header = ()=>{
                 <div className="header__wrapper">
                     <div className="header__logo">
                         <a href="index.html" className="header__logo--link">
-                         <img src="assests/images/logo/logo__white.svg" alt="unipix"/>
+                        <img src="assests/images/logo/nsu-logo.png"  style={{height:"80px", width:"auto", paddingTop:"5px", paddingBottom:"5px"}} alt="north south" />
                         </a>
                     </div>
                     <div className="header__menu">

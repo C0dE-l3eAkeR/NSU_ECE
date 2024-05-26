@@ -57,6 +57,7 @@ const FacultyDetails = () => {
     // Define variables with the information
     const name = "Jennifer Aarons, PhD";
     const designation = "Assistant Professor";
+    const role = "Club Co-ordinator";
     const email = "jenni@Unipixuni.edu";
     const phone = "+122451247241";
     const biography = "Katherine Panagakos earned her M.A. in Classics from Tulane University and her Ph.D. in Greek and Latin from The Ohio State University. During her graduate work, she was a student at The American School of Classical Studies at Athens (ASCSA) and was a field walker and camp manager at the Eastern Korinthia Archaeogical Survey (EKAS). Katherine spent three years in a rotating position at schools in the Associated Colleges of the South (Southwestern University in Georgetown, TX; Furman University in Greenville, SC; and Rhodes College in Memphis, TN). She began teaching primarily Latin and Classics-related courses at Unipix in January of 2008. Katherine serves as the advisor for the Classics National Honor Society (ΗΣΦ) and OGRE (Order of Greco-Roman Enthusiasts), as well as being an active member of the Interdisciplinary Center of Hellenic Studies (ICHS) and the Friends of Hellenic Studies (FHS). Her research focuses on the ancient Greek and Roman novels. Katherine is currently working on three manuscripts. The first focuses on the role of pirates and robbers in the ancient novels and the other two are in collaboration with former students: one is an intermediate Greek text on Aesop’s Fables; the other is a collection of essays on suicide in the ancient Greco-Roman world.";
@@ -69,14 +70,14 @@ const FacultyDetails = () => {
         "GAH 1401 Classical Myth and Legend"
     ];
     const publications = "Review of Stefan Tilg’s Chariton of Aphrodisias and the invention of the Greek Love Novel (Oxford UP, 2010). Bryn Mawr Classical Review. Bryn Mawr, PA: BMCR, 2011.";
-
+    const room = "SAC942"
     return (
        
         <section className="rts-faculty-details rts-section-padding">
             <div className="container">
                 <div className="row sticky-coloum-wrap justify-content-sm-center g-5">
-                    <div className="col-lg-4 col-md-10 col-sm-10 sticky-coloum-item" style={{position:"sticky"}}>
-                        <div className="faculty-member">
+                    <div className="col-lg-4 col-md-10 col-sm-10 sticky-coloum-item" style={{position:"sticky", backgroundColor:'#153448', color:"white"}}>
+                        <div className="pt-5 faculty-member">
                             <div className="faculty-member__details rt-center">
                                 <div className="faculty-member__image" style={{position:"sticky"}}>
                                     <img src="assests/images/faculty/mem-1.jpg" style={{position:"sticky"}} alt="member image" />
@@ -90,6 +91,7 @@ const FacultyDetails = () => {
                                     </div>
                                     <a href={`mailto:${email}`} className="email-contact"><span><i className="fa-light fa-envelope"></i></span>{email}</a>
                                     <a href={`callto:${phone}`} className="phone-contact"><span><i className="fa-light fa-phone"></i></span>{phone}</a>
+                                    <a className="phone-contact"><span><i className="fa-light fa-phone"></i></span>{room}</a>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +101,8 @@ const FacultyDetails = () => {
                             <div className="member-info__details">
                                 <div className="short-info">
                                     <h4 className="rts-section-title mb--15">{name}</h4>
-                                    <span className="designation">{designation}</span>
+                                    <span className="designation">{designation}, <br/>{role}</span>
+                                    <span className="designation"></span>
                                     <p className="description">{biography}</p>
                                 </div>
                                 <div className="short-info">

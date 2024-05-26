@@ -98,7 +98,7 @@ const Default_header = () => {
             <div className="header-one-wrapper">
               <div className="left-side-header">
                 <a href="index.html" className="logo-area">
-                  <img src="/assests/images/logo/logo-default.svg" alt="logo" />
+                <img src="assests/images/logo/nsu-logo.png"  style={{height:"80px", width:"auto", paddingTop:"5px", paddingBottom:"5px"}} alt="north south" />
                 </a>
               </div>
               {/* Navigation */}

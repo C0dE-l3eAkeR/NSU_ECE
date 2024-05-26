@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { useState,useEffect } from 'react';
 
@@ -19,18 +20,24 @@ const Countdown = ({ targetDate }) => {
     };
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
         const timer = setTimeout(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
 
         return () => clearTimeout(timer);
-    });
+    }, [timeLeft]);
 
     const formatTime = (time) => {
         return time < 10 ? `0${time}` : time;
     };
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
         <>
@@ -58,6 +65,7 @@ const Countdown = ({ targetDate }) => {
         </>
     );
 };
+
 
 
 

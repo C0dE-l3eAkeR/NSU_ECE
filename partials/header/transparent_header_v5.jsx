@@ -21,7 +21,7 @@ const TransperentHeader5 = ({ className }) => {
                         <div className="header__wrapper">
                             <div className="header__logo">
                                 <a href="/" className="header__logo--link">
-                                    <img src="assests/images/logo/nsu-logo-small.png"  style={{height:"100px", width:"auto", paddingTop:"10px", paddingBottom:"10px"}} alt="north south" />
+                                <img src="assests/images/logo/nsu-logo.png"  style={{height:"80px", width:"auto", paddingTop:"5px", paddingBottom:"5px"}} alt="north south" />
                                 </a>
                             </div>
                             <div className="header__menu">
